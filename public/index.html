@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이벤트 신청</title>
+</head>
+<body>
+    <h1>이벤트 신청</h1>
+    <form id="eventForm">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">나이:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="gender">성별:</label>
+        <select id="gender" name="gender" required>
+            <option value="m">남성</option>
+            <option value="f">여성</option>
+        </select><br>
+
+        <label for="tel">전화번호:</label>
+        <input type="tel" id="tel" name="tel" required><br>
+
+        <input type="submit" value="신청">
+    </form>
+
+    <script>
+        const eventForm = document.getElementById("eventForm");
+        eventForm.addEventListener("submit", submitForm);
+    
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+    
+            fetch('http://localhost:3000/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                eventForm.reset();
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+    
+</body>
+</html>
