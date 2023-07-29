@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 성공</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Import TmonMonsori font */
+        @font-face {
+            font-family: 'TmonMonsori';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'TmonMonsori', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: black;
+            font-family: 'TmonMonsori', sans-serif; /* 폰트 적용 */
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+            font-family: 'TmonMonsori', sans-serif; /* 폰트 적용 */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'TmonMonsori', sans-serif; /* 폰트 적용 */
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>로그인 성공!</h1>
+        <p>안녕하세요. <%= user_name %>님!</p>
+        <a href="/logout">로그아웃</a>
+    </div>
+</body>
+</html>
